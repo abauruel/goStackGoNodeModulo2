@@ -3,6 +3,7 @@ const session = require("express-session");
 const flash = require("connect-flash");
 const FileStore = require("session-file-store")(session);
 const nunjucks = require("nunjucks");
+const dateFilter = require("nunjucks-date-filter-local");
 const path = require("path");
 
 class App {
