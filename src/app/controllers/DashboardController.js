@@ -1,4 +1,5 @@
 const { User, Appointment } = require("../models");
+
 class DashboardController {
   async index(req, res) {
     const { provider, id } = req.session.user;
@@ -8,7 +9,7 @@ class DashboardController {
     }
 
     const appointments = await Appointment.findAll({
-      include: [User],
+      include: [{ model: User }],
       where: { provider_id: id }
     }).then(users => {
       return users;
