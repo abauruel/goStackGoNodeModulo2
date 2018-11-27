@@ -11,7 +11,9 @@ module.exports = (sequelize, DataTypes) => {
       password_hash: DataTypes.STRING,
       provider: DataTypes.BOOLEAN
     },
+
     {
+      tableName: "users",
       hooks: {
         beforeSave: async user => {
           if (user.password) {

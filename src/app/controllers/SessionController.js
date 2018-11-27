@@ -1,4 +1,5 @@
-const { User } = require("../models");
+const { User, Appointment } = require("../models");
+
 class SessionControllers {
   create(req, res) {
     return res.render("auth/signin");
@@ -20,6 +21,7 @@ class SessionControllers {
       return res.redirect("/");
     }
     req.session.user = user;
+
     return res.redirect("/app/dashboard");
   }
 

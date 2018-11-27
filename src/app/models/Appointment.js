@@ -1,7 +1,13 @@
 module.exports = (sequelize, DataTypes) => {
-  const Appointment = sequelize.define("Appointment", {
-    date: DataTypes.DATE
-  });
+  const Appointment = sequelize.define(
+    "Appointment",
+    {
+      date: DataTypes.DATE
+    },
+    {
+      tableName: "appointments"
+    }
+  );
 
   Appointment.associate = models => {
     Appointment.belongsTo(models.User, { foreignKey: "user_id" });
