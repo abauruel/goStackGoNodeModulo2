@@ -9,22 +9,28 @@
           <p>Agendamentos marcados</p>
 
 
-          <ul class="appointments">
-            {% for appointment in appointments %}
-              <table>
+          <ul class="providers">
+
+              <table classs="provider">
               <thead>
-              <th>Cliente</th>
-              <th>Data/Hora</th>
+                <tr>
+                  <th>Cliente</th>
+                  <th>Data</th>
+                  <th>Hora</th>
+                </tr>
               </thead>
+              {% for appointment in appointments %}
               <tbody>
                 <tr>
                 <td>{{appointment.User.name}}</td>
-                <td>{{appointment.date}}</td>
+                <td>{{appointment.date | date("DD/MM/YYYY") }} </td>
+                <td>{{appointment.date | date("HH:mm") }} </td>
                 </tr>
 
               </tbody>
+              {% endfor %}
               </table>
-            {% endfor %}
+
             </ul>
 
     <a href="/app/logout" class="logout">Sair</a>
